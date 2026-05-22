@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="Teste de velocidade real - Sim Digital Florianópolis">
+    <title>Sim Digital | Teste de Velocidade - Florianópolis</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Chart.js para gráficos em tempo real -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <img src="logo.png" alt="Sim Digital" class="logo">
+            <h1>Velocidade <span>Sim Digital</span> Florianópolis</h1>
+            <p class="subtitle">Teste de velocidade com medição em tempo real</p>
+
+            <!-- Métricas principais -->
+            <div class="speed-results">
+                <div class="result-box download-box">
+                    <div class="icon">📥</div>
+                    <span class="label">Download</span>
+                    <span class="value" id="downloadSpeed">--</span>
+                    <span class="unit">Mbps</span>
+                </div>
+                <div class="result-box upload-box">
+                    <div class="icon">📤</div>
+                    <span class="label">Upload</span>
+                    <span class="value" id="uploadSpeed">--</span>
+                    <span class="unit">Mbps</span>
+                </div>
+                <div class="result-box ping-box">
+                    <div class="icon">⚡</div>
+                    <span class="label">Ping</span>
+                    <span class="value" id="ping">--</span>
+                    <span class="unit">ms</span>
+                </div>
+                <div class="result-box jitter-box">
+                    <div class="icon">📊</div>
+                    <span class="label">Jitter</span>
+                    <span class="value" id="jitter">--</span>
+                    <span class="unit">ms</span>
+                </div>
+            </div>
+
+            <!-- Gráfico em tempo real -->
+            <div class="chart-container">
+                <canvas id="speedChart"></canvas>
+            </div>
+
+            <!-- Barra de progresso -->
+            <div class="progress-container">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+
+            <button id="startTest">
+                <span>🚀 INICIAR TESTE DE VELOCIDADE</span>
+            </button>
+            
+            <div id="status" class="status">
+                Clique em "Iniciar Teste de Velocidade" para começar
+            </div>
+            
+            <div class="info">
+                <small>📊 Gráfico em tempo real | ⬇️ Download: 8 conexões | ⬆️ Upload: 4 conexões | Medição real sem limites artificiais</small>
+            </div>
+            
+            <div class="footer">
+                <p>© 2025 Sim Digital Florianópolis | Teste de velocidade preciso</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Overlay de loading -->
+    <div id="loadingOverlay" class="loading-overlay" style="display: none;">
+        <div class="spinner"></div>
+        <p id="loadingMessage">Preparando teste...</p>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
