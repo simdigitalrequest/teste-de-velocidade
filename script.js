@@ -119,4 +119,26 @@ async function measureDownload() {
             try {
                 const response = await fetch(`${API_URL}?action=download&size=15&nc=${Math.random()}`);
                 const reader = response.body.getReader();
-                while (true)
+                while (true) {
+                    const { done, value } = await reader.read();
+                    if (done) break;
+                    totalBytes += value.byteLength;
+                    if (Date.now() - startTime >= TEST_DURATION) { reader.cancel(); break; }
+                }
+            } catch (e) { break; }
+        }
+    });
+
+    await Promise.all(streams);
+    clearInterval(tracker);
+    
+    const finalElapsed = (Date.now() - startTime) / 1000;
+    return (totalBytes * 8) / (finalElapsed * 1024 * 1024);
+}
+
+async function measureUpload() {
+    setBoxActive('upload-box');
+    const startTime = Date.now();
+    let totalBytesSent = 0;
+    
+    const blobSize = 1 * 10
