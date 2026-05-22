@@ -9,7 +9,7 @@ let currentPhase = 'idle';
 let telemetry = { labels: [], download: [], upload: [] };
 
 function initChart() {
-    https://speedtest-backend-xxx.onrender.com
+    https://speedtest-backend-4oz8.onrender.com
     speedChart = new Chart(ctx, {
         type: 'line',
         data: {
