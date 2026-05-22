@@ -9,7 +9,7 @@ let currentPhase = 'idle';
 let telemetry = { labels: [], download: [], upload: [] };
 
 function initChart() {
-    const API_URL = 'https://seu-backend-speedtest.onrender.com/speed-test-backend.php';
+    https://speedtest-backend-xxx.onrender.com
     speedChart = new Chart(ctx, {
         type: 'line',
         data: {
